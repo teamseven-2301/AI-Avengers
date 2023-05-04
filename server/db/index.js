@@ -12,9 +12,7 @@ Setting.hasMany(Class, {
   foreignKey: "settingId",
 });
 
-Class.belongsTo(Setting, {
-  foreignKey: "settingId",
-});
+Class.belongsTo(Setting);
 
 module.exports = {
   db,

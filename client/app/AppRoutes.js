@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import AuthForm from "../features/auth/AuthForm";
 import Home from "../features/home/Home";
-import Chat from "../features/chat/Chat";
+//import Chat from "../features/chat/Chat";
 import { me } from "./store";
 
 /**
@@ -24,7 +24,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route to="/home" element={<Home />} />
-          <Route path="/chat" element={<Chat />} />
+          {/* <Route path="/chat" element={<Chat />} /> */}
         </Routes>
       ) : (
         <Routes>
@@ -40,7 +40,7 @@ const AppRoutes = () => {
             path="/signup"
             element={<AuthForm name="signup" displayName="Sign Up" />}
           />
-          <Route path="/chat" element={<Chat />} />
+          {/* <Route path="/chat" element={<Chat />} /> */}
         </Routes>
       )}
     </div>

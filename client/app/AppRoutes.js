@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
@@ -23,10 +24,12 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
+
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/guide' element={<Guide />} />
           <Route path='/*' element={<Home />} />
+
         </Routes>
       ) : (
         <Routes>

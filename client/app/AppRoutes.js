@@ -6,7 +6,7 @@ import Home from '../features/home/Home';
 import About from '../component/About';
 import Guide from '../component/Guide';
 import Chat from '../features/chat/Chat';
-import 
+import SettingSelect from '../features/settings/SettingSelect';
 import ClassSelect from '../features/class/Class';
 import { me } from './store';
 
@@ -29,8 +29,8 @@ const AppRoutes = () => {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/guide' element={<Guide />} />
-          <Route path='/class' element={<SettingSelect />} />
-          <Route path='/class' element={<ClassSelect />} />
+          <Route path='/settings' element={<SettingSelect />} />
+          <Route path='/class/' element={<ClassSelect />} />
           <Route path='/chat' element={<Chat />} />
           <Route path='/*' element={<Home />} />
         </Routes>
@@ -39,6 +39,7 @@ const AppRoutes = () => {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/guide' element={<Guide />} />
+          <Route path='/settings' element={<SettingSelect />} />
           <Route path='/class' element={<ClassSelect />} />
           <Route path='/chat' element={<Chat />} />
 

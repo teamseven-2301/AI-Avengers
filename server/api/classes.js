@@ -4,7 +4,11 @@ module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const classes = await Class.findAll()
+    const classes = await Class.findAll({
+      include: {
+        all: true
+        },
+    })
     res.json(classes)
   } catch (err) {
     next(err)
@@ -16,7 +20,10 @@ router.get('/:classId', async (req, res, next) => {
     const chosenClass = await Class.findOne({
       where: {
       id: req.params.classId,
-    }
+    },
+      include: {
+        all: true
+        },
   }
 )
     res.json(chosenClass)

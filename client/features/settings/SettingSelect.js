@@ -5,9 +5,10 @@ import { fetchSettings } from './settingSelectSlice'
 
 import { Link } from 'react-router-dom'
 
-const SettingSelect = (props) => {
+const SettingSelect = () => {
 
-const [settingSelected, setSettingSelected] = useState("");
+const [settingName, setSettingName] = useState("");
+const [settingID, setSettingID] = useState(NaN);
 
 
   const settingsArray = useSelector((state) => state.settingSelect.settings)
@@ -17,6 +18,11 @@ const [settingSelected, setSettingSelected] = useState("");
   useEffect(() => {
     dispatch(fetchSettings())
   }, [dispatch])
+
+  const handleSetting = (settId, settName) => {
+    setSettingID(settId)
+    setSettingName(settName)
+  }
 
 
   return (
@@ -30,10 +36,10 @@ const [settingSelected, setSettingSelected] = useState("");
           <div>LOADING....</div>
         ) : (
           settingsArray.map((setting) => (
-            <Link key={setting.id} to={`/classes/${setting.id}`}>
+            <Link key={setting.id} to={`/class/${setting.id}`}>
               <div className='singleClass'>
                 <section>
-                  <h2>{setting.name.toUpperCase() }</h2>
+                  <h2> {setting.name.toUpperCase() }</h2>
                   <br></br>
                 </section>
               </div>

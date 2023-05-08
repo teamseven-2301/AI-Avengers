@@ -3,6 +3,8 @@ module.exports = router;
 
 router.use("/users", require("./users"));
 router.use("/generate", require("./generate"));
+router.use("/settings", require("./settings"));
+router.use("/classes", require("./classes"));
 
 router.use((req, res, next) => {
   const error = new Error("Not Found");

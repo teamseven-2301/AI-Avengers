@@ -20,7 +20,7 @@ router.get("/:settingId", async (req, res, next) => {
         id: req.params.settingId,
       },
     });
-    res.send(setting);
+    res.json(setting);
   } catch (err) {
     next(err);
   }

@@ -10,3 +10,17 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/:settingId', async (req, res, next) => {
+  try {
+    let setting = await Setting.findOne({
+      where: {
+      id: req.params.settingId,
+    }
+  }
+)
+    res.send(setting)
+  } catch (err) {
+    next(err)
+  }
+})

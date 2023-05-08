@@ -21,19 +21,41 @@ async function seed() {
     User.create({ username: 'alex', password: '123' }),
   ]);
 
-  // Creating settings
+  // Creating Settings
   const settings = await Promise.all([
-    Setting.create({name: "medieval-fantasy"}),
-    Setting.create({name: "cyberpunk"}),
+    Setting.create({id: 1, name: "medieval-fantasy"}),
+    Setting.create({id: 2, name: "cyberpunk"}),
   ]);
+
+    // Creating Clases
+    const classes = await Promise.all([
+      Class.create({id: 1, name: "knight", settingId: 1}),
+      Class.create({id: 2, name: "wizard", settingId: 1}),
+      Class.create({id: 3, name: "Hacker", settingId: 2}),
+      Class.create({id: 4, name: "Corpo", settingId: 2}),
+    ]);
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${settings.length} settings`);
+  console.log(`seeded ${classes.length} classes`);
   console.log(`seeded successfully`);
+
   return {
     users: {
-      cody: users[0],
-      murphy: users[1],
+      joseph: users[0],
+      david: users[1],
+      steven: users[2],
+      alex: users[3]
+    },
+    settings: {
+      medievalFantasy: settings[0],
+      cyberpunk: settings[1]
+    },
+    classes: {
+      knight: classes[0],
+      wizard: classes[1],
+      hacker: classes[2],
+      corpo: classes[3]
     },
   };
 }

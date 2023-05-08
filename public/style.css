@@ -1,150 +1,104 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Alegreya Sans", sans-serif;
-}
-
+/* SITE WIDE STYLING */
 body {
-  background: #343541;
+  margin: 0;
+  font-family: "VT323", monospace;
+  background-color: #121212;
+  color: #dadada;
+  font-size: 2rem;
 }
 
-#app {
-  width: 100vw;
+#master {
+  display: grid;
+  grid-template-columns: minmax(150px, 15%) auto;
+}
+
+a {
+  color: #dadada;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #dadada;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-top: 50px;
+}
+
+nav a {
+  margin-top: 20px;
+}
+
+/* ----------------------- HOME COMPONENT ----------------------- */
+#home-container {
+  display: grid;
+  place-items: center;
   height: 100vh;
-  background: #343541;
+}
 
+#home-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  max-width: 1000px;
 }
 
-#chat_container {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
+#home-info #home-play-now {
+  border: 1px solid #dadada;
+  padding: 3px 9px 3px 9px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
 
+#home-info #home-play-now:hover {
+  border: 1px solid #dadada;
+  color: #121212;
+  background-color: #dadada;
+  text-decoration: none;
+}
+
+#home-info h1 {
+  margin: 0;
+}
+
+#home-info p {
+  margin-top: 150px;
+}
+
+/* ----------------------- GUIDE COMPONENT ----------------------- */
+#guide-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+#guide-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  padding-bottom: 20px;
-  scroll-behavior: smooth;
+  max-width: 900px;
+  margin-left: 50px;
 }
 
-/* hides scrollbar */
-#chat_container::-webkit-scrollbar {
-  display: none;
-}
-
-.wrapper {
-  width: 100%;
-  padding: 15px;
-}
-
-.ai {
-  background: #40414F;
-}
-
-.chat {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-
+/* ----------------------- ABOUT COMPONENT ----------------------- */
+#about-container {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.profile {
-  width: 36px;
-  height: 36px;
-  border-radius: 5px;
-
-  background: #5436DA;
-
-  display: flex;
-  justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-.ai .profile {
-  background: #10a37f;
-}
-
-.profile img {
-  width: 60%;
-  height: 60%;
-  object-fit: contain;
-}
-
-.message {
-  flex: 1;
-
-  color: #dcdcdc;
-  font-size: 20px;
-
-  max-width: 100%;
-  overflow-x: scroll;
-
-  /*
-   * white space refers to any spaces, tabs, or newline characters that are used to format the CSS code
-   * specifies how white space within an element should be handled. It is similar to the "pre" value, which tells the browser to treat all white space as significant and to preserve it exactly as it appears in the source code.
-   * The pre-wrap value allows the browser to wrap long lines of text onto multiple lines if necessary.
-   * The default value for the white-space property in CSS is "normal". This tells the browser to collapse multiple white space characters into a single space, and to wrap text onto multiple lines as needed to fit within its container.
-  */
-  white-space: pre-wrap; 
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* hides scrollbar */
-.message::-webkit-scrollbar {
-  display: none;
-}
-
-form {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 10px;
-  background: #40414F;
-
+#about-info {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-textarea {
-  width: 100%;
-
-  color: #fff;
-  font-size: 18px;
-
-  padding: 10px;
-  background: transparent;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-}
-
-button {
-  outline: 0;
-  border: 0;
-  cursor: pointer;
-  background: transparent;
-}
-
-form img {
-  width: 30px;
-  height: 30px;
+  flex-direction: column;
+  max-width: 900px;
+  margin-left: 50px;
 }

@@ -1,20 +1,22 @@
-import React from 'react';
-// import { useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-/**
- * COMPONENT
- */
 const Home = () => {
   return (
-    <div>
-      <h1>Infinite Dungeon Crawler</h1>
-      <p>
-        Step into a world of adventure with our AI-assisted text adventure game.
-        Use your imagination to navigate through a captivating story where your
-        decisions matter and every playthrough is unique.
-      </p>
-      <button className='play-now' /*onClick={handleClick}*/>Play Now</button>
+    <div id="home-container">
+      <div id="home-info">
+        <h1>INFINITE DUNGEON</h1>
+        <h1>CRAWLER</h1>
+        <p>
+          Step into a world of adventure with our AI-assisted text adventure
+          game. Use your imagination to navigate through a captivating story
+          where your decisions matter and every playthrough is unique.
+        </p>
+        <Link to="/chat" id="home-play-now">
+          PLAY NOW
+        </Link>
+        <Link to="/about">About</Link>
+      </div>
     </div>
   );
 };

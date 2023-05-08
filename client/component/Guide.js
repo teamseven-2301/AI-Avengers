@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 
-/**
- * COMPONENT
- */
 const Guide = () => {
   return (
-    <div>
-      <p> Guide Information</p>
-      <p> Guide Information</p>
-      <p> Guide Information</p>
+    <div id="guide-container">
+      <div id="guide-info">
+        <p> Guide Information</p>
+        <p> Guide Information</p>
+        <p> Guide Information</p>
+      </div>
     </div>
   );
 };

@@ -11,15 +11,15 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.get('/:settingId', async (req, res, next) => {
+router.get('/:classId', async (req, res, next) => {
   try {
-    let setting = await Setting.findOne({
+    const chosenClass = await Class.findOne({
       where: {
-      id: req.params.settingId,
+      id: req.params.classId,
     }
   }
 )
-    res.send(setting)
+    res.send(chosenClass)
   } catch (err) {
     next(err)
   }

@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User },
+  models: { User, Class, Setting },
 } = require('../server/db');
 
 /**
@@ -21,7 +21,14 @@ async function seed() {
     User.create({ username: 'alex', password: '123' }),
   ]);
 
+  // Creating settings
+  const settings = await Promise.all([
+    Setting.create({name: "medieval-fantasy"}),
+    Setting.create({name: "cyberpunk"}),
+  ]);
+
   console.log(`seeded ${users.length} users`);
+  console.log(`seeded ${settings.length} settings`);
   console.log(`seeded successfully`);
   return {
     users: {

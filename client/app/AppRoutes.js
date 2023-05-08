@@ -7,7 +7,7 @@ import About from '../component/About';
 import Guide from '../component/Guide';
 import Chat from '../features/chat/Chat';
 import SettingSelect from '../features/settings/SettingSelect';
-import ClassSelect from '../features/class/Class';
+import ClassSelect from '../features/class/class';
 import { me } from './store';
 
 /**

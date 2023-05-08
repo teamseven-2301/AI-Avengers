@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setSettings, fetchSettings } from './settingSelectSlice'
+import { fetchSettings } from './settingSelectSlice'
 
 
 import { Link } from 'react-router-dom'
@@ -18,23 +18,22 @@ const [settingSelected, setSettingSelected] = useState("");
     dispatch(fetchSettings())
   }, [dispatch])
 
-  console.log(settingsArray)
 
   return (
     <div className='settingsContainer'>
-      <h1>{">"} Choose your setting</h1>
+      <h1>{"> Choose your setting"}</h1>
 
       <br></br>
 
       <div className='settingList'>
         {status === 'loading' ? (
-          <div>Loading....</div>
+          <div>LOADING....</div>
         ) : (
           settingsArray.map((setting) => (
             <Link key={setting.id} to={`/classes/${setting.id}`}>
               <div className='singleClass'>
                 <section>
-                  <h2>{setting.name.toUpperCase()}</h2>
+                  <h2>{setting.name.toUpperCase() }</h2>
                   <br></br>
                 </section>
               </div>

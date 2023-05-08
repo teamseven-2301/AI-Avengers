@@ -14,6 +14,9 @@ Setting.hasMany(Class, {
 
 Class.belongsTo(Setting);
 
+
+
+
 module.exports = {
   db,
   models: {

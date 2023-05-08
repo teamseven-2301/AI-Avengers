@@ -31,8 +31,8 @@ async function seed() {
     const classes = await Promise.all([
       Class.create({id: 1, name: "knight", settingId: 1}),
       Class.create({id: 2, name: "wizard", settingId: 1}),
-      Class.create({id: 3, name: "Hacker", settingId: 2}),
-      Class.create({id: 4, name: "Corpo", settingId: 2}),
+      Class.create({id: 3, name: "hacker", settingId: 2}),
+      Class.create({id: 4, name: "corpo", settingId: 2}),
     ]);
 
   console.log(`seeded ${users.length} users`);

@@ -19,7 +19,7 @@ router.get('/:classId', async (req, res, next) => {
     }
   }
 )
-    res.send(chosenClass)
+    res.json(chosenClass)
   } catch (err) {
     next(err)
   }

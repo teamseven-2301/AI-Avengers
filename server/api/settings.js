@@ -6,7 +6,11 @@ module.exports = router;
 
 router.get("/", async (req, res, next) => {
   try {
-    const settings = await Setting.findAll();
+    const settings = await Setting.findAll({
+      include: {
+        all: true
+        },
+    });
     res.json(settings);
   } catch (err) {
     next(err);
@@ -19,6 +23,9 @@ router.get("/:settingId", async (req, res, next) => {
       where: {
         id: req.params.settingId,
       },
+      include: {
+         all: true
+        }
     });
     res.json(setting);
   } catch (err) {

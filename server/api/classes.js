@@ -15,21 +15,20 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-//incase specific item is needed
 
-// router.get('/:classId', async (req, res, next) => {
-//   try {
-//     const chosenClass = await Class.findOne({
-//       where: {
-//       id: req.params.classId,
-//     },
-//       include: {
-//         all: true
-//         },
-//   }
-// )
-//     res.json(chosenClass)
-//   } catch (err) {
-//     next(err)
-//   }
-// })
+router.get('/:settingID', async (req, res, next) => {
+  try {
+    const classes1 = await Class.findAll({
+      where: {
+      settingId: req.params.settingID,
+    },
+      include: {
+        all: true
+        },
+  }
+)
+    res.json(classes1)
+  } catch (err) {
+    next(err)
+  }
+})

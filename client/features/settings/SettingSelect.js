@@ -7,9 +7,8 @@ import { Link, useLocation } from 'react-router-dom'
 const SettingSelect = () => {
 
 const [settingName, setSettingName] = useState("test");
-const [settingID, setSettingID] = useState(NaN);
+// const [settingID, setSettingID] = useState(NaN);
 
-const ATest = "it works"
 
   const settingsArray = useSelector((state) => state.settingSelect.settings)
   const status = useSelector((state) => state.settingSelect.status)

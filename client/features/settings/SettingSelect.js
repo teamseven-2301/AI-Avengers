@@ -6,9 +6,10 @@ import { Link, useLocation } from 'react-router-dom'
 
 const SettingSelect = () => {
 
-const [settingName, setSettingName] = useState("");
+const [settingName, setSettingName] = useState("test");
 const [settingID, setSettingID] = useState(NaN);
 
+const ATest = "it works"
 
   const settingsArray = useSelector((state) => state.settingSelect.settings)
   const status = useSelector((state) => state.settingSelect.status)
@@ -31,10 +32,9 @@ const [settingID, setSettingID] = useState(NaN);
         ) : (
 
           settingsArray.map((setting) => (
-            <Link state={{ chosenSetting: settingName }} key={setting.id} to={`/class/${setting.id}`}>
+            <Link state={{ settingName: setting.name }} key={setting.id} to={`/class/${setting.id}`}>
 
-              <div onClick={async () => setSettingName(setting.name)}
-              className='singleSetting'>
+              <div className='singleSetting'>
                 <section>
                   <h2> {setting.name.toUpperCase() }</h2>
                 </section>

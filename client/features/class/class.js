@@ -11,7 +11,9 @@ const ClassSelect = () => {
   const classes = useSelector((state) => state.classSelect);
 
   const location = useLocation()
-  const { chosenSetting } =  location.state
+  const { settingName } =  location.state;
+
+  console.log("setting state: " + settingName)
 
   const { settingID } = useParams();
 

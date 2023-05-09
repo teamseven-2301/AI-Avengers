@@ -16,8 +16,7 @@ const allClassesSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(fetchClasses.fulfilled, (state, action) => {
-      state = action.payload;
-      return state;
+      return action.payload;
     });
   },
 });

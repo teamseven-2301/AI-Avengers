@@ -17,23 +17,23 @@ async function seed() {
   const users = await Promise.all([
     User.create({ username: 'joseph', password: '123' }),
     User.create({ username: 'david', password: '123' }),
-    User.create({ username: 'steven', password: '123' }),
+    User.create({ username: 'steffan', password: '123' }),
     User.create({ username: 'alex', password: '123' }),
   ]);
 
   // Creating Settings
   const settings = await Promise.all([
-    Setting.create({id: 1, name: "medieval-fantasy"}),
-    Setting.create({id: 2, name: "cyberpunk"}),
+    Setting.create({ id: 1, name: 'medieval-fantasy' }),
+    Setting.create({ id: 2, name: 'cyberpunk' }),
   ]);
 
-    // Creating Clases
-    const classes = await Promise.all([
-      Class.create({id: 1, name: "knight", settingId: 1}),
-      Class.create({id: 2, name: "wizard", settingId: 1}),
-      Class.create({id: 3, name: "hacker", settingId: 2}),
-      Class.create({id: 4, name: "corpo", settingId: 2}),
-    ]);
+  // Creating Clases
+  const classes = await Promise.all([
+    Class.create({ id: 1, name: 'knight', settingId: 1 }),
+    Class.create({ id: 2, name: 'wizard', settingId: 1 }),
+    Class.create({ id: 3, name: 'hacker', settingId: 2 }),
+    Class.create({ id: 4, name: 'corpo', settingId: 2 }),
+  ]);
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${settings.length} settings`);
@@ -44,18 +44,18 @@ async function seed() {
     users: {
       joseph: users[0],
       david: users[1],
-      steven: users[2],
-      alex: users[3]
+      steffan: users[2],
+      alex: users[3],
     },
     settings: {
       medievalFantasy: settings[0],
-      cyberpunk: settings[1]
+      cyberpunk: settings[1],
     },
     classes: {
       knight: classes[0],
       wizard: classes[1],
       hacker: classes[2],
-      corpo: classes[3]
+      corpo: classes[3],
     },
   };
 }

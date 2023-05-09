@@ -21,6 +21,7 @@ const ClassSelect = () => {
 
   const { settingID } = useParams();
 
+  
   useEffect(() => {
     dispatch(fetchClasses(settingID));
   }, [dispatch]);

@@ -10,14 +10,12 @@ const Chat = () => {
   useEffect(() => {
     const sendInitialScenario = async () => {
       const scenario =
-        "Be my Dungeon Master in a Dungeons and Dragons game that's based on Conan the Barbarian. Assume the role of an expert on the works and literary style of Robert E. Howard. The adventure takes place in a port city on the Black coast. Give a narrative description of everything that follows, based on my actions, in the style of a Robert E. Howard novel, and without taking control of me or my character. Also provide suitable names for other characters and places. I arrive in the port city on the Black Coast. What is the city's name and what do I see as I arrive? Please keep your responses brief and to the point, using no more than 200 tokens";
+        "Roleplay with me in persistent context where AI is a dungeon-master-type guide narrating a role-play game, I will input a prompt with my actions, and you will reply with the consequences of my actions in the game's universe. The game shall take place in a medieval fantasy setting but you are free to come up with the specific scenario. I am a knight. AI will construct the details of the gaming session to provide an immersive experience, and will now begin with only narration introducing player to the scenario.";
 
-      setMessageHistory([{ role: "system", content: scenario }]); //first value in message history array
+      setMessageHistory([{ role: "user", content: scenario }]); //first value in message history array
 
       // sending the initial scenario
-      const response = await sendMessage([
-        { role: "system", content: scenario },
-      ]);
+      const response = await sendMessage([{ role: "user", content: scenario }]);
 
       // updating message history with first response
       setMessageHistory((prevMessageHistory) => [
@@ -54,40 +52,44 @@ const Chat = () => {
   };
 
   return (
-    <div>
-      <main>
+    <div id="chat-container">
+      <div id="chat">
+        {messageHistory.map((message, index) => {
+          if (index === 0 && message.role === "user") {
+            return null;
+          } else if (message.role === "assistant") {
+            return (
+              <div className="ai-messages" key={index}>
+                <p>{message.content}</p>
+              </div>
+            );
+          } else if (message.role === "user") {
+            return (
+              <div className="user-messages" key={index}>
+                <p>
+                  {"> "}
+                  {message.content}
+                </p>
+              </div>
+            );
+          }
+        })}
+      </div>
+      <div id="input-field">
         <input
           type="text"
           name="input"
           placeholder="What do you do?"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-        />
-        <button onClick={handleSend}>Submit</button>
-
-        <div className="chat">
-          {messageHistory.map((message, index) => {
-            if (message.role === "user") {
-              return (
-                <div className="user-messages" key={index}>
-                  <p>
-                    {"> "}
-                    {message.content}
-                  </p>
-                </div>
-              );
-            } else if (message.role === "assistant") {
-              return (
-                <div className="ai-messages" key={index}>
-                  <p>{message.content}</p>
-                </div>
-              );
-            } else {
-              return null;
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSend();
             }
-          })}
-        </div>
-      </main>
+          }}
+          tabIndex={0}
+        />
+      </div>
     </div>
   );
 };

@@ -40,7 +40,7 @@ const AppRoutes = () => {
           <Route path='/about' element={<About />} />
           <Route path='/guide' element={<Guide />} />
           <Route path='/settings' element={<SettingSelect />} />
-          <Route path='/class' element={<ClassSelect />} />
+          <Route path='/class/:settingID' element={<ClassSelect />} />
           <Route path='/chat' element={<Chat />} />
 
           <Route

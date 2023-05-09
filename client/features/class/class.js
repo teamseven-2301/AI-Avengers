@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
 import { fetchClasses, selectClasses } from "./classSlice";
+
+import { Link, useParams, useLocation } from "react-router-dom";
 
 //get the class names from the classSlices object and render them to the broswer
 
 const ClassSelect = () => {
   const dispatch = useDispatch();
   const classes = useSelector((state) => state.classSelect);
+
+  const location = useLocation()
+  const { chosenSetting } =  location.state
 
   const { settingID } = useParams();
 

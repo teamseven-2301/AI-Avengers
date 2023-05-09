@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import classSelectReducer from '../features/class/classSelectSlice';
+import classSelectReducer from '../features/class/classSlice';
 import authReducer from '../features/auth/authSlice';
 import settingSelectReducer from '../features/settings/settingSelectSlice';
 

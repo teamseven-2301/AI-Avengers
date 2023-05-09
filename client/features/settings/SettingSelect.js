@@ -2,14 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSettings } from './settingSelectSlice'
 
-
 import { Link } from 'react-router-dom'
 
 const SettingSelect = () => {
-
-const [settingName, setSettingName] = useState("");
-const [settingID, setSettingID] = useState(NaN);
-
 
   const settingsArray = useSelector((state) => state.settingSelect.settings)
   const status = useSelector((state) => state.settingSelect.status)
@@ -18,12 +13,6 @@ const [settingID, setSettingID] = useState(NaN);
   useEffect(() => {
     dispatch(fetchSettings())
   }, [dispatch])
-
-  const handleSetting = (settId, settName) => {
-    setSettingID(settId)
-    setSettingName(settName)
-  }
-
 
   return (
     <div className='settingsContainer'>

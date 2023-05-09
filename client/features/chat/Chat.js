@@ -9,9 +9,6 @@ const Chat = () => {
   const location = useLocation()
   const { className, setting } =  location.state;
 
-  console.log(location.state)
-
-
   const [input, setInput] = useState(""); //input html element
   const [messageHistory, setMessageHistory] = useState([]);
   const chatScrollEnd = useRef(null);

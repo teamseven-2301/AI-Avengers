@@ -122,14 +122,13 @@ But if we want individual control later over each component, we have the ability
   height: 70vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
   overflow-y: auto;
   font-size: 1.4rem;
-  border: 1px solid blue;
 }
 
-#chat > :first-child {
-  margin-top: auto !important;
+/* neccessary for chat to fill from the bottom */
+#filler-fix {
+  flex: 1 1 auto;
 }
 
 #input-field {
@@ -137,7 +136,6 @@ But if we want individual control later over each component, we have the ability
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
 }
 
 #input-field input {

@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchClasses = createAsyncThunk(
   "classSelect/fetchClasses",
-  async () => {
+  async (settingID) => {
     try {
       const { data } = await axios.get(`/api/classes/${settingID}`);
       return data;

@@ -12,7 +12,7 @@ const Home = () => {
           game. Use your imagination to navigate through a captivating story
           where your decisions matter and every playthrough is unique.
         </p>
-        <Link to="/chat" id="home-play-now">
+        <Link to="/settings" id="home-play-now">
           PLAY NOW
         </Link>
         <Link to="/about">About</Link>

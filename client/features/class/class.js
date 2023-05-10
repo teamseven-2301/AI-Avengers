@@ -7,11 +7,10 @@ import { fetchClasses, selectClasses } from './classSlice';
 
 const ClassSelect = () => {
   const dispatch = useDispatch();
-  const classes = useSelector(state => state.classes);
+  const classes = useSelector(state => state.classSelect);
 
   const { settingID } = useParams();
-
-  console.log('settingID is: ');
+  console.log(`settingID is: ${settingID} `);
 
   useEffect(() => {
     dispatch(fetchClasses(settingID));

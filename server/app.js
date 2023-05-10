@@ -4,6 +4,19 @@ const morgan = require('morgan')
 const app = express()
 module.exports = app
 
+// o: make sure that you set & send the req.headers.authorization otherwise
+//  this will crash... and import User model
+// app.use(async (req, res, next) => {
+//   const user = await User.findByToken(req.headers.authorization);
+
+//   if (user) {
+//     req.user = user;
+//     next();
+//   } else {
+//     next(new Error("..."));
+//   }
+// });
+
 // logging middleware
 app.use(morgan('dev'))
 

@@ -9,6 +9,7 @@ const openai = new OpenAIApi(configuration);
 
 router.post("/", async (req, res) => {
   const { arrayOfMessages } = req.body;
+
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: arrayOfMessages,

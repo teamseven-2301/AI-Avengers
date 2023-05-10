@@ -21,6 +21,10 @@ const SettingSelect = () => {
       <br></br>
 
       <div className='settingList'>
+        {/* o:
+              this should ideally NOT be a an either or thing... in other words, 
+              you should display loading if status is loading AND map through the list... let me explain
+        */}
         {status === 'loading' ? (
           <div>LOADING....</div>
         ) : (

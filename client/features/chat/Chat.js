@@ -4,6 +4,8 @@ import axios from "axios";
 
 const Chat = () => {
   const [input, setInput] = useState(""); //input html element
+
+  // o: I am thinking this should be a part of the redux slice
   const [messageHistory, setMessageHistory] = useState([]);
   const chatScrollEnd = useRef(null);
 
@@ -65,6 +67,8 @@ const Chat = () => {
     <div id="chat-container">
       <div id="chat">
         <div id="filler-fix"></div>
+        {/* o: writing this type of code in line is usually bad practice, you would want
+              to generate this above or in a separate component for clarity */}
         {messageHistory.map((message, index) => {
           if (index === 0 && message.role === "system") {
             return null;

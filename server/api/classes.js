@@ -18,6 +18,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:settingID', async (req, res, next) => {
   try {
+    // o: role?
     const classes1 = await Class.findAll({
       where: {
       settingId: req.params.settingID,

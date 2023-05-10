@@ -5,6 +5,7 @@ import axios from "axios";
 const Chat = () => {
   const [input, setInput] = useState(""); //input html element
   const [messageHistory, setMessageHistory] = useState([]);
+  const chatScrollEnd = useRef(null);
 
   // useEffect to run on page load
   useEffect(() => {
@@ -25,6 +26,12 @@ const Chat = () => {
     };
     sendInitialScenario();
   }, []);
+
+  // useEffect scrolls to bottom of chat window on messageHistory update
+  useEffect(() => {
+    chatScrollEnd.current.scrollIntoView({ behavior: "smooth" });
+  }, [messageHistory]);
+
   // fires everytime the submit button is clicked
   const handleSend = async () => {
     setMessageHistory((prevMessageHistory) => [
@@ -37,6 +44,9 @@ const Chat = () => {
       { role: "user", content: input },
     ];
     setInput(""); //clears input field
+
+    // scrolls to end on new message from user
+    chatScrollEnd.current.scrollIntoView({ behavior: "smooth" });
 
     // send message history to bot with user submission and update it with the bot's response
     const response = await sendMessage(currentMessageHistory);
@@ -54,6 +64,7 @@ const Chat = () => {
   return (
     <div id="chat-container">
       <div id="chat">
+        <div id="filler-fix"></div>
         {messageHistory.map((message, index) => {
           if (index === 0 && message.role === "system") {
             return null;
@@ -74,6 +85,7 @@ const Chat = () => {
             );
           }
         })}
+        <div ref={chatScrollEnd} id="chat-end"></div>
       </div>
       <div id="input-field">
         <input

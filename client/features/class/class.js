@@ -1,30 +1,45 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { fetchClasses } from './classSlice';
+import { Link, useParams } from 'react-router-dom';
+import { fetchClasses, selectClasses } from './classSlice';
+
 
 //get the class names from the classSlices object and render them to the broswer
 
 const ClassSelect = () => {
+
   const dispatch = useDispatch();
   const classes = useSelector(state => state.classes);
 
+  const { settingID } = useParams();
+
+  console.log("settingID is: " )
+
   useEffect(() => {
-    dispatch(fetchClasses());
+    dispatch(fetchClasses(settingID));
   }, [dispatch]);
 
   return (
-    <>
-      <>
-        {classes.map((classx, index) => {
-          return (
-            <div key={index} id='class-selection'>
-              <Link to='/chat'>{classx.name}</Link>
+
+    <div className='classesContainer'>
+    <h1>{"> Choose your class"}</h1>
+
+    <br></br>
+
+    <div className='classList'>
+      {
+        classes.map((aClass) => (
+          <Link key={aClass.id} to={`/chat`}>
+            <div className='singleClass'>
+              <section>
+                <h2> {aClass.name.toUpperCase() }</h2>
+              </section>
             </div>
-          );
-        })}
-      </>
-    </>
+          </Link>
+        ))
+      }
+    </div>
+  </div>
   );
 };
 

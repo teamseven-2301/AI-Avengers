@@ -24,19 +24,15 @@ const ClassSelect = () => {
       <br></br>
 
       <div className="classList">
-        {classes ? (
-          classes.map((aClass) => (
-            <Link key={aClass.id} to={`/chat`}>
-              <div className="singleClass">
-                <section>
-                  <h2> {aClass.name.toUpperCase()}</h2>
-                </section>
-              </div>
-            </Link>
-          ))
-        ) : (
-          <p>testing</p>
-        )}
+        {classes.map((aClass) => (
+          <Link key={aClass.id} to={`/chat`}>
+            <div className="singleClass">
+              <section>
+                <h2> {aClass.name.toUpperCase()}</h2>
+              </section>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

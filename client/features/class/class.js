@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchClasses, selectClasses } from './classSlice';
 
+
 //get the class names from the classSlices object and render them to the broswer
 
 const ClassSelect = () => {
@@ -19,6 +20,7 @@ const ClassSelect = () => {
   }, [dispatch]);
 
   return (
+
     <div className='classesContainer'>
     <h1>{"> Choose your class"}</h1>
 

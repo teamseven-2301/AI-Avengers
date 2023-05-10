@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 /* SITE WIDE STYLING */
 body {
   margin: 0;
-  font-family: "VT323";
+  font-family: 'VT323';
   background-color: #121212;
   color: #dadada;
   font-size: 2rem;
@@ -108,6 +108,14 @@ But if we want individual control later over each component, we have the ability
   margin-left: 50px;
 }
 
+/* ----------------------- CLASS COMPONENT ----------------------- */
+#class-selection {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* ----------------------- CHAT COMPONENT ----------------------- */
 #chat-container {
   display: flex;
@@ -135,7 +143,7 @@ But if we want individual control later over each component, we have the ability
 }
 
 #input-field input {
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   width: 60%;
   font-size: 1.5rem;
   color: #dadada;

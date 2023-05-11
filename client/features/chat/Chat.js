@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-
 import { useLocation } from "react-router-dom";
 
 const Chat = () => {
@@ -10,6 +9,7 @@ const Chat = () => {
 
   const [input, setInput] = useState(""); //input html element
   const [messageHistory, setMessageHistory] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const chatScrollEnd = useRef(null);
 
   useEffect(() => {
@@ -59,7 +59,9 @@ const Chat = () => {
 
   // Request to backend
   const sendMessage = async (arrayOfMessages) => {
+    setIsLoading(true);
     const response = await axios.post("/api/generate", { arrayOfMessages });
+    setIsLoading(false);
     return response.data;
   };
 
@@ -97,6 +99,7 @@ const Chat = () => {
       <div id="chat">
         <div id="filler-fix"></div>
         <ChatHistory messageHistory={messageHistory} />
+        {isLoading && <p>Loading...</p>}
         <div ref={chatScrollEnd} id="chat-end"></div>
       </div>
       <div id="input-field">

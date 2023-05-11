@@ -5,24 +5,19 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 
 const Chat = () => {
-
-  const location = useLocation()
-  const { className, setting } =  location.state;
+  const location = useLocation();
+  const { className, setting } = location.state;
 
   const [input, setInput] = useState(""); //input html element
   const [messageHistory, setMessageHistory] = useState([]);
   const chatScrollEnd = useRef(null);
 
   useEffect(() => {
-    console.log("setting state: " + setting)
-    console.log("class state: " + className)
     const sendInitialScenario = async () => {
-      const scenario =
-        "You are the dungeon master and I am the player. The setting is medieval fantasy. You are free to come up with the specific scenario. My character is a knight. I will input a prompt with my actions, and you will reply with the consequences of my actions in the game's universe. The game shall take place in a medieval fantasy setting but you are free to come up with the specific scenario. I am a knight. AI will construct the details of the gaming session to provide an immersive experience, and will now begin with only narration introducing player to the scenario. Please try to keep responses to 200 tokens or less.";
+      const scenario = `You are the dungeon master and I am the player. The setting is ${setting}. You are free to come up with the specific scenario. My character is a ${className}. I will input a prompt with my actions, and you will reply with the consequences of my actions in the game's universe. The game shall take place in a medieval fantasy setting but you are free to come up with the specific scenario. I am a knight. AI will construct the details of the gaming session to provide an immersive experience, and will now begin with only narration introducing player to the scenario. Please try to keep responses to 200 tokens or less.`;
 
       setMessageHistory([{ role: "system", content: scenario }]); //first value in message history array
       const initialMessage = [{ role: "system", content: scenario }];
-
       const response = await sendMessage(initialMessage);
 
       // updating message history with first response

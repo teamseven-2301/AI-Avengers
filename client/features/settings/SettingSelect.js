@@ -1,51 +1,47 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchSettings } from './settingSelectSlice'
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchSettings } from "./settingSelectSlice";
 
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from "react-router-dom";
 
 const SettingSelect = () => {
+  const [settingName, setSettingName] = useState("test");
 
-  
-const [settingName, setSettingName] = useState("test");
-// const [settingID, setSettingID] = useState(NaN);
-
-
-  const settingsArray = useSelector((state) => state.settingSelect.settings)
-  const status = useSelector((state) => state.settingSelect.status)
-  const dispatch = useDispatch()
+  const settingsArray = useSelector((state) => state.settingSelect.settings);
+  const status = useSelector((state) => state.settingSelect.status);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchSettings())
-  }, [dispatch])
+    dispatch(fetchSettings());
+  }, [dispatch]);
 
   return (
-    <div className='settingsContainer'>
+    <div className="settingsContainer">
       <h1>{"> Choose your setting"}</h1>
 
       <br></br>
 
-      <div className='settingList'>
-        {status === 'loading' ? (
+      <div className="settingList">
+        {status === "loading" ? (
           <div>LOADING....</div>
-
         ) : (
-
           settingsArray.map((setting) => (
-            <Link state={{ settingName: setting.name }} key={setting.id} to={`/class/${setting.id}`}>
-
-              <div className='singleSetting'>
+            <Link
+              state={{ settingName: setting.name }}
+              key={setting.id}
+              to={`/class/${setting.id}`}
+            >
+              <div className="singleSetting">
                 <section>
-                  <h2> {setting.name.toUpperCase() }</h2>
+                  <h2> {setting.name.toUpperCase()}</h2>
                 </section>
               </div>
-
             </Link>
           ))
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SettingSelect
+export default SettingSelect;

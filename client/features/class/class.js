@@ -19,9 +19,6 @@ const ClassSelect = () => {
   return (
     <div className='classesContainer'>
       <h1>{'> Choose your class'}</h1>
-
-      <br></br>
-
       <div className='classList'>
         {classes.map(aClass => (
           <Link key={aClass.id} to={`/chat`}>

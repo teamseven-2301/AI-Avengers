@@ -2,13 +2,21 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
+import { useLocation } from "react-router-dom";
+
 const Chat = () => {
+
+  const location = useLocation()
+  const { className, setting } =  location.state;
+
   const [input, setInput] = useState(""); //input html element
   const [messageHistory, setMessageHistory] = useState([]);
   const chatScrollEnd = useRef(null);
 
   // useEffect to run on page load
   useEffect(() => {
+    console.log("setting state: " + setting)
+    console.log("class state: " + className)
     const sendInitialScenario = async () => {
       const scenario =
         "Roleplay with me in persistent context where AI is a dungeon-master-type guide narrating a role-play game, I will input a prompt with my actions, and you will reply with the consequences of my actions in the game's universe. The game shall take place in a medieval fantasy setting but you are free to come up with the specific scenario. I am a knight. AI will construct the details of the gaming session to provide an immersive experience, and will now begin with only narration introducing player to the scenario.";

@@ -1,15 +1,15 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { logout } from '../../app/store';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../app/store";
 
 const Navbar = () => {
-  const isLoggedIn = useSelector(state => !!state.auth.me.id);
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -17,21 +17,21 @@ const Navbar = () => {
       {isLoggedIn ? (
         <nav>
           {/* The navbar will show these links after you log in */}
-          <Link to='/'>Home</Link>
-          <Link to='/guide'>Guide</Link>
-          <Link to='/about'>About</Link>
-          <button type='button' onClick={logoutAndRedirectHome}>
+          <Link to="/">Home</Link>
+          <Link to="/guide">Guide</Link>
+          <Link to="/about">About</Link>
+          <button id="logout-btn" type="button" onClick={logoutAndRedirectHome}>
             Logout
           </button>
         </nav>
       ) : (
         <nav>
           {/* The navbar will show these links before you log in */}
-          <Link to='/'>Home</Link>
-          <Link to='/guide'>Guide</Link>
-          <Link to='/about'>About</Link>
-          <Link to='/login'>Login</Link>
-          <Link to='/signup'>Sign Up</Link>
+          <Link to="/">Home</Link>
+          <Link to="/guide">Guide</Link>
+          <Link to="/about">About</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
         </nav>
       )}
     </div>

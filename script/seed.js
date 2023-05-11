@@ -23,16 +23,39 @@ async function seed() {
 
   // Creating Settings
   const settings = await Promise.all([
-    Setting.create({ id: 1, name: 'medieval-fantasy' }),
+    Setting.create({ id: 1, name: 'medieval fantasy' }),
     Setting.create({ id: 2, name: 'cyberpunk' }),
+    Setting.create({ id: 3, name: 'apocalyptic' }),
+    Setting.create({ id: 4, name: 'mystery' }),
+    Setting.create({ id: 5, name: 'harry potter' }),
   ]);
 
   // Creating Clases
   const classes = await Promise.all([
     Class.create({ id: 1, name: 'knight', settingId: 1 }),
     Class.create({ id: 2, name: 'wizard', settingId: 1 }),
-    Class.create({ id: 3, name: 'hacker', settingId: 2 }),
-    Class.create({ id: 4, name: 'corpo', settingId: 2 }),
+    Class.create({ id: 3, name: 'witcher', settingId: 1 }),
+    Class.create({ id: 4, name: 'barbarian', settingId: 1 }),
+
+    Class.create({ id: 5, name: 'hacker', settingId: 2 }),
+    Class.create({ id: 6, name: 'corpo', settingId: 2 }),
+    Class.create({ id: 7, name: 'cyborg', settingId: 2 }),
+    Class.create({ id: 8, name: 'cop', settingId: 2 }),
+
+    Class.create({ id: 9, name: 'mercenary', settingId: 3 }),
+    Class.create({ id: 10, name: 'soldier', settingId: 3 }),
+    Class.create({ id: 11, name: 'raider', settingId: 3 }),
+    Class.create({ id: 12, name: 'rogue', settingId: 3 }),
+
+    Class.create({ id: 13, name: 'detective', settingId: 4 }),
+    Class.create({ id: 14, name: 'spy', settingId: 4 }),
+    Class.create({ id: 15, name: 'serial killer', settingId: 4 }),
+    Class.create({ id: 16, name: 'copper', settingId: 4 }),
+
+    Class.create({ id: 17, name: 'gryffindor', settingId: 5 }),
+    Class.create({ id: 18, name: 'hufflepuff', settingId: 5 }),
+    Class.create({ id: 19, name: 'ravenclaw', settingId: 5 }),
+    Class.create({ id: 20, name: 'slytherin', settingId: 5 }),
   ]);
 
   console.log(`seeded ${users.length} users`);

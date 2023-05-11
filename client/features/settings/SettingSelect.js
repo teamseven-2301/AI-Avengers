@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSettings } from "./settingSelectSlice";
@@ -9,6 +10,7 @@ const SettingSelect = () => {
 
   const settingsArray = useSelector((state) => state.settingSelect.settings);
   const status = useSelector((state) => state.settingSelect.status);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,6 +18,7 @@ const SettingSelect = () => {
   }, [dispatch]);
 
   return (
+
     <div className="settingsContainer">
       <h1>{"> Choose your setting"}</h1>
 

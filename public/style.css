@@ -98,14 +98,34 @@ But if we want individual control later over each component, we have the ability
 #guide-container {
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
 }
 
 #guide-info {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
-  margin-left: 50px;
+  align-items: center;
+}
+
+#guide-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+#guide-words {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  width: 500px;
+  list-style-type: none;
 }
 
 /* ----------------------- ABOUT COMPONENT ----------------------- */

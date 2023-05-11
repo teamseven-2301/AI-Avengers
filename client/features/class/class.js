@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchClasses, selectClasses } from "./classSlice";
@@ -8,7 +9,8 @@ import { Link, useParams, useLocation } from "react-router-dom";
 
 const ClassSelect = () => {
   const dispatch = useDispatch();
-  const classes = useSelector((state) => state.classSelect);
+  const classes = useSelector(state => state.classSelect);
+
 
   const location = useLocation();
   const { settingName } = location.state;
@@ -23,6 +25,7 @@ const ClassSelect = () => {
   }, [dispatch]);
 
   return (
+
     <div className="classesContainer">
       <h1>{"> Choose your class"}</h1>
 
@@ -36,6 +39,7 @@ const ClassSelect = () => {
             key={aClass.id}
           >
             <div className="singleClass">
+
               <section>
                 <h2> {aClass.name.toUpperCase()}</h2>
               </section>

@@ -32,7 +32,7 @@ const SettingSelect = () => {
             >
               <div className='singleSetting'>
                 <section>
-                  <h2> {setting.name.toUpperCase()}</h2>
+                  <h3> {setting.name.toUpperCase()}</h3>
                 </section>
               </div>
             </Link>

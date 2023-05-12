@@ -35,7 +35,7 @@ const ClassSelect = () => {
           >
             <div className='singleClass'>
               <section>
-                <h2> {aClass.name.toUpperCase()}</h2>
+                <h3> {aClass.name.toUpperCase()}</h3>
               </section>
             </div>
           </Link>

@@ -9,10 +9,10 @@ import { authenticate } from '../../app/store';
 **/
 
 const AuthForm = ({ name, displayName }) => {
-  const { error } = useSelector((state) => state.auth);
+  const { error } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = evt => {
     evt.preventDefault();
     const formName = evt.target.name;
     const username = evt.target.username.value;
@@ -21,22 +21,22 @@ const AuthForm = ({ name, displayName }) => {
   };
 
   return (
-    <div>
+    <div id='login-signup'>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="username">
+          <label htmlFor='username'>
             <small>Username</small>
           </label>
-          <input name="username" type="text" />
+          <input name='username' type='text' />
         </div>
         <div>
-          <label htmlFor="password">
+          <label htmlFor='password'>
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <input name='password' type='password' />
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          <button type='submit'>{displayName}</button>
         </div>
         {error && <div> {error} </div>}
       </form>

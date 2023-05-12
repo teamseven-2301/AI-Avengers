@@ -54,6 +54,11 @@ nav a {
   cursor: pointer;
 }
 
+#login-signup {
+  position: relative;
+  top: 64px;
+}
+
 /* COMPONENT STYLES */
 /* Could have made these classes and made just one styling for all these pages. 
 But if we want individual control later over each component, we have the ability */
@@ -132,7 +137,7 @@ ul {
 /* ----------------------- ABOUT COMPONENT ----------------------- */
 #about-container {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   height: 90vh;
 }
 

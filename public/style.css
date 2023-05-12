@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 /* SITE WIDE STYLING */
 body {
   margin: 0;
-  font-family: "VT323";
+  font-family: 'VT323';
   background-color: #121212;
   color: #dadada;
   font-size: 1.8rem;
@@ -43,7 +43,7 @@ nav a {
 #logout-btn {
   color: #dadada;
   background-color: #121212;
-  font-family: "VT323";
+  font-family: 'VT323';
   border: none;
   font-size: 1.5rem;
   margin-top: 20px;
@@ -69,7 +69,8 @@ But if we want individual control later over each component, we have the ability
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1000px;
+  max-width: 750px;
+  text-align: center;
 }
 
 #home-info #home-play-now {
@@ -111,8 +112,8 @@ But if we want individual control later over each component, we have the ability
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
-  margin-top: 0;
+  margin-bottom: 50px;
+  margin-top: 70px;
 }
 
 #guide-words {
@@ -132,14 +133,14 @@ ul {
 #about-container {
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
 }
 
 #about-info {
   display: flex;
   flex-direction: column;
   max-width: 900px;
-  margin-left: 50px;
+  text-align: center;
 }
 
 /* ----------------------- CLASS COMPONENT ----------------------- */
@@ -181,7 +182,7 @@ ul {
 }
 
 #input-field input {
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   width: 60%;
   font-size: 1.5rem;
   color: #dadada;

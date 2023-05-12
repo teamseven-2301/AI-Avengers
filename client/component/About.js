@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 
 const About = () => {
   return (
-    <div id='about-container'>
-      <div id='about-info'>
+    <div id="about-container">
+      <div id="about-info">
         <h1>Welcome to Infinite Dungeon Crawler</h1>
         <p>
           This is an AI text adventure game created by 4 programmers, Steffan
           Cross, Alex Petrovich, Joseph White && David Morris.
         </p>
         <p>
-          Our inspiration for creating this text-based adventure game comes from
-          the nostalgia and enjoyment feeling of classic but simple games like
-          AI Dungeon. We wanted to recreate the immersive experience of
-          exploring a fictional world utilizing the power of AI and imagination.
+          Our inspiration for creating this game comes from the nostalgia and
+          enjoyment of classic text adventure games in the vein of Zork. We
+          wanted to recreate the immersive experience of exploring a fictional
+          world utilizing the power of AI and imagination.
         </p>
         <p>
           Our game combines the best of traditional text-based adventures with

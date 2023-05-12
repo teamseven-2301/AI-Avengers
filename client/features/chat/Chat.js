@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import InfoPopup from "./gui/InfoPopUp";
 
 const Chat = () => {
   const location = useLocation();
@@ -117,6 +118,9 @@ const Chat = () => {
           tabIndex={0}
         />
       </div>
+          <div className="popUpContainer">
+           <InfoPopup />
+          </div>
     </div>
   );
 };

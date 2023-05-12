@@ -18,7 +18,7 @@ const SettingSelect = () => {
 
   return (
     <div className='settingsContainer'>
-      <h1>{'> Choose your setting'}</h1>
+      <h2>{'> Choose your setting'}</h2>
 
       <div className='settingList'>
         {status === 'loading' ? (

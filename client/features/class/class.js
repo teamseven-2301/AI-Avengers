@@ -18,30 +18,41 @@ const ClassSelect = () => {
 
   const { settingID } = useParams();
 
+  function goBack() {
+    window.history.back();
+  }
+
   useEffect(() => {
     dispatch(fetchClasses(settingID));
   }, [dispatch]);
 
   return (
-    <div className='classesContainer'>
-      <h1>{'> Choose your class'}</h1>
+    <>
+      <>
+        <div className='classesContainer'>
+          <h2>{'> Choose your class'}</h2>
 
-      <div className='classList'>
-        {classes.map(aClass => (
-          <Link
-            to={`/chat`}
-            state={{ className: aClass.name, setting: settingName }}
-            key={aClass.id}
-          >
-            <div className='singleClass'>
-              <section>
-                <h3> {aClass.name.toUpperCase()}</h3>
-              </section>
+          <div className='classList'>
+            {classes.map(aClass => (
+              <Link
+                to={`/chat`}
+                state={{ className: aClass.name, setting: settingName }}
+                key={aClass.id}
+              >
+                <div className='singleClass'>
+                  <section>
+                    <h3> {aClass.name.toUpperCase()}</h3>
+                  </section>
+                </div>
+              </Link>
+            ))}
+            <div onClick={goBack} id='back-btn'>
+              {'<'}
             </div>
-          </Link>
-        ))}
-      </div>
-    </div>
+          </div>
+        </div>
+      </>
+    </>
   );
 };
 

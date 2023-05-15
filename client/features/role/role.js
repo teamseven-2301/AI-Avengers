@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchClasses, selectClasses } from './classSlice';
+import { fetchRoles, selectRoles } from './roleSlice';
 
 import { Link, useParams, useLocation } from 'react-router-dom';
 
-//get the class names from the classSlices object and render them to the broswer
-
-const ClassSelect = () => {
+const RoleSelect = () => {
   const dispatch = useDispatch();
-  const classes = useSelector(state => state.classSelect);
+  const roles = useSelector(state => state.roleSelect);
 
   const location = useLocation();
   const { settingName } = location.state;
 
-  const [ClassName, setClassName] = useState('');
+  const [RoleName, setRoleName] = useState('');
   const [setting, seSettting] = useState('');
 
   const { settingID } = useParams();
@@ -23,25 +21,25 @@ const ClassSelect = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchClasses(settingID));
+    dispatch(fetchRoles(settingID));
   }, [dispatch]);
 
   return (
     <>
       <>
-        <div className='classesContainer'>
-          <h2>{'> Choose your class'}</h2>
+        <div roleName='rolesContainer'>
+          <h2>{'> Choose your role'}</h2>
 
-          <div className='classList'>
-            {classes.map(aClass => (
+          <div roleName='roleList'>
+            {roles.map(aRole => (
               <Link
                 to={`/chat`}
-                state={{ className: aClass.name, setting: settingName }}
-                key={aClass.id}
+                state={{ roleName: aRole.name, setting: settingName }}
+                key={aRole.id}
               >
-                <div className='singleClass'>
+                <div roleName='singleRole'>
                   <section>
-                    <h3> {aClass.name.toUpperCase()}</h3>
+                    <h3> {aRole.name.toUpperCase()}</h3>
                   </section>
                 </div>
               </Link>
@@ -56,4 +54,4 @@ const ClassSelect = () => {
   );
 };
 
-export default ClassSelect;
+export default RoleSelect;

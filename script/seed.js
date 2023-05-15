@@ -28,6 +28,7 @@ async function seed() {
     Setting.create({ id: 3, name: 'apocalyptic' }),
     Setting.create({ id: 4, name: 'mystery' }),
     Setting.create({ id: 5, name: 'harry potter' }),
+    Setting.create({ id: 6, name: 'star wars' }),
   ]);
 
   // Creating Clases
@@ -56,6 +57,11 @@ async function seed() {
     Role.create({ id: 18, name: 'hufflepuff', settingId: 5 }),
     Role.create({ id: 19, name: 'ravenclaw', settingId: 5 }),
     Role.create({ id: 20, name: 'slytherin', settingId: 5 }),
+
+    Role.create({ id: 21, name: 'hutt', settingId: 6 }),
+    Role.create({ id: 22, name: 'ewok', settingId: 6 }),
+    Role.create({ id: 23, name: 'decommissioned android', settingId: 6 }),
+    Role.create({ id: 24, name: 'chewbacca', settingId: 6 }),
   ]);
 
   console.log(`seeded ${users.length} users`);

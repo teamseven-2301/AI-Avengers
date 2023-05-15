@@ -117,10 +117,10 @@ const Chat = () => {
           }}
           tabIndex={0}
         />
+       <div className="buttonsContainer">
+       <InfoPopup />
+       </div>
       </div>
-          <div className="popUpContainer">
-           <InfoPopup />
-          </div>
     </div>
   );
 };

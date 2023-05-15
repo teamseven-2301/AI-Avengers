@@ -55,7 +55,7 @@ nav a {
 }
 
 /* COMPONENT STYLES */
-/* Could have made these classes and made just one styling for all these pages. 
+/* Could have made these classes and made just one styling for all these pages.
 But if we want individual control later over each component, we have the ability */
 
 /* ----------------------- HOME COMPONENT ----------------------- */
@@ -189,4 +189,17 @@ ul {
   padding: 10px 0px 10px 15px;
   outline: none;
   border: none;
+}
+
+/* ----------------------- PopUps ----------------------- */
+
+#guiButtons {
+  border: solid #dadada 2.5px;
+  padding: 5px;
+}
+
+
+#guiButtons:hover {
+text-decoration: underline;
+cursor: pointer;
 }

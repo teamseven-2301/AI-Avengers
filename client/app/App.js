@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import Navbar from "../features/navbar/Navbar";
 import AppRoutes from "./AppRoutes";
+// import AudioPlayer from "./audio";
 
 const App = () => {
   const location = useLocation();

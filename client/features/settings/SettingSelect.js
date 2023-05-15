@@ -28,7 +28,7 @@ const SettingSelect = () => {
             <Link
               state={{ settingName: setting.name }}
               key={setting.id}
-              to={`/class/${setting.id}`}
+              to={`/role/${setting.id}`}
             >
               <div className='singleSetting'>
                 <section>

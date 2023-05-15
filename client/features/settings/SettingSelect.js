@@ -17,10 +17,10 @@ const SettingSelect = () => {
   }, [dispatch]);
 
   return (
-    <div roleName='settingsContainer'>
+    <div className='settingsContainer'>
       <h2>{'> Choose your setting'}</h2>
 
-      <div roleName='settingList'>
+      <div className='settingList'>
         {status === 'loading' ? (
           <div>LOADING....</div>
         ) : (
@@ -30,7 +30,7 @@ const SettingSelect = () => {
               key={setting.id}
               to={`/role/${setting.id}`}
             >
-              <div roleName='singleSetting'>
+              <div className='singleSetting'>
                 <section>
                   <h3> {setting.name.toUpperCase()}</h3>
                 </section>

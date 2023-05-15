@@ -11,7 +11,7 @@ const RoleSelect = () => {
   const location = useLocation();
   const { settingName } = location.state;
 
-  const [RoleName, setRoleName] = useState('');
+  const [roleName, setRoleName] = useState('');
   const [setting, seSettting] = useState('');
 
   const { settingID } = useParams();
@@ -27,17 +27,17 @@ const RoleSelect = () => {
   return (
     <>
       <>
-        <div roleName='rolesContainer'>
+        <div className='rolesContainer'>
           <h2>{'> Choose your role'}</h2>
 
-          <div roleName='roleList'>
+          <div className='roleList'>
             {roles.map(aRole => (
               <Link
                 to={`/chat`}
                 state={{ roleName: aRole.name, setting: settingName }}
                 key={aRole.id}
               >
-                <div roleName='singleRole'>
+                <div className='singleRole'>
                   <section>
                     <h3> {aRole.name.toUpperCase()}</h3>
                   </section>

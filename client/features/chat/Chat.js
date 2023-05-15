@@ -68,13 +68,13 @@ const Chat = () => {
   const Message = ({ message }) => {
     if (message.role === 'assistant') {
       return (
-        <div roleName='ai-messages'>
+        <div className='ai-messages'>
           <p>{message.content}</p>
         </div>
       );
     } else if (message.role === 'user') {
       return (
-        <div roleName='user-messages'>
+        <div className='user-messages'>
           <p>
             {'> '}
             {message.content}

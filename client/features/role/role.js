@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRoles, selectRoles } from './roleSlice';
+import { fetchRoles } from './roleSlice';
 
 import { Link, useParams, useLocation } from 'react-router-dom';
 
@@ -10,9 +10,6 @@ const RoleSelect = () => {
 
   const location = useLocation();
   const { settingName } = location.state;
-
-  const [roleName, setRoleName] = useState('');
-  const [setting, seSettting] = useState('');
 
   const { settingID } = useParams();
 

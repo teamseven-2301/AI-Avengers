@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRoles } from './roleSlice';
 
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom';
 
 const RoleSelect = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const roles = useSelector(state => state.roleSelect);
 
   const location = useLocation();
@@ -13,9 +15,9 @@ const RoleSelect = () => {
 
   const { settingID } = useParams();
 
-  function goBack() {
-    window.history.back();
-  }
+  const backButton = () => {
+    navigate('/settings');
+  };
 
   useEffect(() => {
     dispatch(fetchRoles(settingID));
@@ -41,9 +43,7 @@ const RoleSelect = () => {
                 </div>
               </Link>
             ))}
-            <div onClick={goBack} id='back-btn'>
-              {'<'}
-            </div>
+            <div onClick={backButton} id='back-btn'></div>
           </div>
         </div>
       </>

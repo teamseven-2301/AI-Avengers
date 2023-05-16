@@ -43,7 +43,9 @@ const RoleSelect = () => {
                 </div>
               </Link>
             ))}
-            <div onClick={backButton} id='back-btn'></div>
+            <div onClick={backButton} id='back-btn'>
+              {'<'}
+            </div>
           </div>
         </div>
       </>

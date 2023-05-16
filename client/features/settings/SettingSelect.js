@@ -18,7 +18,7 @@ const SettingSelect = () => {
 
   return (
     <div className='settingsContainer'>
-      <h1>{'> Choose your setting'}</h1>
+      <h2>{'> Choose your setting'}</h2>
 
       <div className='settingList'>
         {status === 'loading' ? (
@@ -28,11 +28,11 @@ const SettingSelect = () => {
             <Link
               state={{ settingName: setting.name }}
               key={setting.id}
-              to={`/class/${setting.id}`}
+              to={`/role/${setting.id}`}
             >
               <div className='singleSetting'>
                 <section>
-                  <h2> {setting.name.toUpperCase()}</h2>
+                  <h3> {setting.name.toUpperCase()}</h3>
                 </section>
               </div>
             </Link>

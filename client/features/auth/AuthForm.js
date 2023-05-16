@@ -1,6 +1,6 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { authenticate } from '../../app/store';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { authenticate } from "../../app/store";
 
 /**
   The AuthForm component can be used for Login or Sign Up.
@@ -8,38 +8,63 @@ import { authenticate } from '../../app/store';
   Props for Sign up: name="signup", displayName="Sign Up"
 **/
 
-const AuthForm = ({ name, displayName }) => {
+const AuthForm = ({ setToggleAuthForm }) => {
   const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const [name, setName] = useState("login");
+  const [displayName, setDisplayName] = useState("Login");
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     const formName = evt.target.name;
     const username = evt.target.username.value;
     const password = evt.target.password.value;
-    dispatch(authenticate({ username, password, method: formName }));
+    const res = await dispatch(
+      authenticate({ username, password, method: formName })
+    );
+    if (!res.payload) {
+      setToggleAuthForm(false);
+    }
+  };
+
+  const changeToSignup = () => {
+    setName("signup");
+    setDisplayName("Sign Up");
+  };
+
+  const handleClick = (evt) => {
+    evt.stopPropagation();
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && <div> {error} </div>}
-      </form>
+    <div id="overlay" onClick={() => setToggleAuthForm(false)}>
+      <div id="login-signup" onClick={handleClick}>
+        <button onClick={() => setToggleAuthForm(false)}>X</button>
+        <form onSubmit={handleSubmit} name={name}>
+          <div>
+            <input name="username" type="text" placeholder="Username..." />
+          </div>
+          <div>
+            <input name="password" type="password" placeholder="Password..." />
+          </div>
+          <button type="submit" id="submit-btn">
+            {displayName}
+          </button>
+          {error && name === "login" ? (
+            <div id="error-message"> {error} </div>
+          ) : (
+            <div style={{ color: "#121212", fontSize: "1.2rem" }}>hidden</div>
+          )}
+        </form>
+        {name === "login" && (
+          <div id="have-account">
+            <p>Don't have an account?</p>
+            <p onClick={changeToSignup} style={{ textDecoration: "underline" }}>
+              Click Here
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

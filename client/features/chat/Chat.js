@@ -5,17 +5,23 @@ import { useLocation } from 'react-router-dom';
 
 const Chat = () => {
   const location = useLocation();
+
+  // o: please explain what's going on here
   const { roleName, setting } = location.state;
 
   const [input, setInput] = useState(''); //input html element
   const [messageHistory, setMessageHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const chatScrollEnd = useRef(null);
+
+  // o: remove unused code
   // const[song, setSong] = useState
   // if (setting === 'cyberpunk') {
   //   setSong('/Internet-Dungeon-Crawler/public/song1.mp3')
   // }
 
+  // o: you should be doing this in redux... this would actually be 100% easier
+  //  to read and code in redux
   useEffect(() => {
     const sendInitialScenario = async () => {
       const scenario = `You are the dungeon master and I am the player. The setting is ${setting}. You are free to come up with the specific scenario. My character is a ${roleName}. I will input a prompt with my actions, and you will reply with the consequences of my actions in the game's universe. AI will construct the details of the gaming session to provide an immersive experience, and will now begin with only narration introducing player to the scenario. Please try to keep responses to 200 tokens or less.`;
@@ -69,6 +75,9 @@ const Chat = () => {
     return response.data;
   };
 
+  // o: you should move these either into their own files or outside of the component for readability
+  //  ... also you are not making use of any closures so it makes more sense to have it outside
+  // o: might as well destruction message if you are not going to use it
   const Message = ({ message }) => {
     if (message.role === 'assistant') {
       return (
@@ -128,6 +137,7 @@ const Chat = () => {
 export default Chat;
 
 
+// o: wat?
 {/* <audio controls loop autoplay id="myAudio">
   <setSong type="audio/mpeg">
   Your browser does not support the audio element.

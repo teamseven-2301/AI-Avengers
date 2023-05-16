@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// o: selectRoles is not being used
 import { fetchRoles, selectRoles } from './roleSlice';
 
 import { Link, useParams, useLocation } from 'react-router-dom';
@@ -11,11 +12,14 @@ const RoleSelect = () => {
   const location = useLocation();
   const { settingName } = location.state;
 
+  // o: it looks like these are not being used
   const [roleName, setRoleName] = useState('');
   const [setting, seSettting] = useState('');
 
   const { settingID } = useParams();
 
+  // o: please avoid doing this, you should be using useNavigate, you
+  //  can import this from react-router-dom
   function goBack() {
     window.history.back();
   }

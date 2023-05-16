@@ -17,6 +17,8 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// o: remove if not being used
+
 //incase specific item is needed
 
 // router.get("/:settingId", async (req, res, next) => {

@@ -1,4 +1,6 @@
 const { Configuration, OpenAIApi } = require("openai");
+
+// o: you should do this in the entry point of the server
 require("dotenv").config();
 const router = require("express").Router();
 

@@ -19,6 +19,7 @@ export const settingSelectSlice = createSlice({
   initialState,
   reducers: {
     setSettings: (state, action) => {
+      // o: you can probably remove this
       console.log(action);
       state.settings = action.payload;
     },

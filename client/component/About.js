@@ -1,3 +1,5 @@
+// o: why is this file not within features?
+
 import React from "react";
 
 const About = () => {

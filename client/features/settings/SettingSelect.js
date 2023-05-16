@@ -5,6 +5,7 @@ import { fetchSettings } from './settingSelectSlice';
 import { Link, useLocation } from 'react-router-dom';
 
 const SettingSelect = () => {
+  // o: remove if not being used
   const [settingName, setSettingName] = useState('test');
 
   const settingsArray = useSelector(state => state.settingSelect.settings);

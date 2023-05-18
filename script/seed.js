@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User, Class, Setting },
+  models: { User, Role, Setting },
 } = require('../server/db');
 
 /**
@@ -23,21 +23,50 @@ async function seed() {
 
   // Creating Settings
   const settings = await Promise.all([
-    Setting.create({ id: 1, name: 'medieval-fantasy' }),
+    Setting.create({ id: 1, name: 'medieval fantasy' }),
     Setting.create({ id: 2, name: 'cyberpunk' }),
+    Setting.create({ id: 3, name: 'apocalyptic' }),
+    Setting.create({ id: 4, name: 'mystery' }),
+    Setting.create({ id: 5, name: 'harry potter' }),
+    Setting.create({ id: 6, name: 'star wars' }),
   ]);
 
   // Creating Clases
-  const classes = await Promise.all([
-    Class.create({ id: 1, name: 'knight', settingId: 1 }),
-    Class.create({ id: 2, name: 'wizard', settingId: 1 }),
-    Class.create({ id: 3, name: 'hacker', settingId: 2 }),
-    Class.create({ id: 4, name: 'corpo', settingId: 2 }),
+  const roles = await Promise.all([
+    Role.create({ id: 1, name: 'knight', settingId: 1 }),
+    Role.create({ id: 2, name: 'wizard', settingId: 1 }),
+    Role.create({ id: 3, name: 'witcher', settingId: 1 }),
+    Role.create({ id: 4, name: 'barbarian', settingId: 1 }),
+
+    Role.create({ id: 5, name: 'hacker', settingId: 2 }),
+    Role.create({ id: 6, name: 'corpo', settingId: 2 }),
+    Role.create({ id: 7, name: 'cyborg', settingId: 2 }),
+    Role.create({ id: 8, name: 'cop', settingId: 2 }),
+
+    Role.create({ id: 9, name: 'mercenary', settingId: 3 }),
+    Role.create({ id: 10, name: 'soldier', settingId: 3 }),
+    Role.create({ id: 11, name: 'raider', settingId: 3 }),
+    Role.create({ id: 12, name: 'rogue', settingId: 3 }),
+
+    Role.create({ id: 13, name: 'detective', settingId: 4 }),
+    Role.create({ id: 14, name: 'spy', settingId: 4 }),
+    Role.create({ id: 15, name: 'serial killer', settingId: 4 }),
+    Role.create({ id: 16, name: 'copper', settingId: 4 }),
+
+    Role.create({ id: 17, name: 'gryffindor', settingId: 5 }),
+    Role.create({ id: 18, name: 'hufflepuff', settingId: 5 }),
+    Role.create({ id: 19, name: 'ravenclaw', settingId: 5 }),
+    Role.create({ id: 20, name: 'slytherin', settingId: 5 }),
+
+    Role.create({ id: 21, name: 'hutt', settingId: 6 }),
+    Role.create({ id: 22, name: 'ewok', settingId: 6 }),
+    Role.create({ id: 23, name: 'decommissioned android', settingId: 6 }),
+    Role.create({ id: 24, name: 'chewbacca', settingId: 6 }),
   ]);
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${settings.length} settings`);
-  console.log(`seeded ${classes.length} classes`);
+  console.log(`seeded ${roles.length} roles`);
   console.log(`seeded successfully`);
 
   return {
@@ -51,11 +80,11 @@ async function seed() {
       medievalFantasy: settings[0],
       cyberpunk: settings[1],
     },
-    classes: {
-      knight: classes[0],
-      wizard: classes[1],
-      hacker: classes[2],
-      corpo: classes[3],
+    roles: {
+      knight: roles[0],
+      wizard: roles[1],
+      hacker: roles[2],
+      corpo: roles[3],
     },
   };
 }

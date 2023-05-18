@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 /* SITE WIDE STYLING */
 body {
   margin: 0;
-  font-family: "VT323";
+  font-family: 'VT323';
   background-color: #121212;
   color: #dadada;
   font-size: 1.8rem;
@@ -43,7 +43,7 @@ nav a {
 #logout-btn {
   color: #dadada;
   background-color: #121212;
-  font-family: "VT323";
+  font-family: 'VT323';
   border: none;
   font-size: 1.5rem;
   margin-top: 20px;
@@ -69,7 +69,8 @@ But if we want individual control later over each component, we have the ability
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1000px;
+  max-width: 900px;
+  text-align: center;
 }
 
 #home-info #home-play-now {
@@ -111,8 +112,8 @@ But if we want individual control later over each component, we have the ability
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
-  margin-top: 0;
+  margin-bottom: 50px;
+  margin-top: 70px;
 }
 
 #guide-words {
@@ -131,15 +132,15 @@ ul {
 /* ----------------------- ABOUT COMPONENT ----------------------- */
 #about-container {
   display: flex;
-  align-items: center;
-  height: 100vh;
+  /* align-items: center; */
+  height: 90vh;
 }
 
 #about-info {
   display: flex;
   flex-direction: column;
   max-width: 900px;
-  margin-left: 50px;
+  text-align: center;
 }
 
 /* ----------------------- CLASS COMPONENT ----------------------- */
@@ -148,6 +149,11 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#back-btn:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* ----------------------- CHAT COMPONENT ----------------------- */
@@ -181,7 +187,7 @@ ul {
 }
 
 #input-field input {
-  font-family: "VT323", monospace;
+  font-family: 'VT323', monospace;
   width: 60%;
   font-size: 1.5rem;
   color: #dadada;
@@ -191,8 +197,8 @@ ul {
   border: none;
 }
 
-/* ----------------------- GUI PopUps ----------------------- */
 
+/* ----------------------- GUI PopUps ----------------------- */
 /* removes pop-up arrow */
 .popup-arrow {
   display: none
@@ -217,4 +223,76 @@ border: solid gold 2.5px
 
 .popUpContainer {
   display: inline;
+
+/* ----------------------- AUTHFORM COMPONENT ----------------------- */
+#overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  position: fixed;
+  background: rgba(23, 23, 23, 0.8);
+}
+
+#login-signup {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: #121212;
+  width: 300px;
+  height: 350px;
+}
+
+#login-signup form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-signup input {
+  font-family: 'VT323';
+  font-size: 1.5rem;
+  color: #dadada;
+  background-color: #121212;
+  padding: 10px 0px 10px 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #dadada;
+}
+
+#login-signup button {
+  font-family: 'VT323';
+  font-size: 1.5rem;
+  color: #dadada;
+  background-color: #121212;
+  padding: 10px 15px 10px 15px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#error-message {
+  font-size: 1.2rem;
+}
+
+#login-signup form #submit-btn {
+  margin-top: 30px;
+  border: 1px solid #dadada;
+  margin-bottom: 20px;
+}
+
+#login-signup p {
+  font-size: 1.2rem;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+#have-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 30px;
 }

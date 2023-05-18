@@ -1,18 +1,22 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import InfoPopup from "./gui/InfoPopUp";
-
 
 const Chat = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { roleName, setting } = location.state;
 
   const [input, setInput] = useState(''); //input html element
   const [messageHistory, setMessageHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const chatScrollEnd = useRef(null);
+
+  const quitButton = () => {
+    navigate('/settings');
+  };
 
   useEffect(() => {
     const sendInitialScenario = async () => {
@@ -104,28 +108,34 @@ const Chat = () => {
         {isLoading && <p>Loading...</p>}
         <div ref={chatScrollEnd} id='chat-end'></div>
       </div>
-      <div id='input-field'>
-        <input
-          type='text'
-          name='input'
-          placeholder='What do you do?'
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => {
-            if (e.key === 'Enter') {
-              handleSend();
-            }
-          }}
-          tabIndex={0}
-        />
-       <div className="buttonsContainer">
-       <InfoPopup />
-       </div>
+      <div id='container'>
+        <div id='input-field' className='left'>
+          <input
+            type='text'
+            name='input'
+            placeholder='What do you do?'
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                handleSend();
+              }
+            }}
+            tabIndex={0}
+          />
+        </div>
+        <div className="buttonsContainer">
+        <InfoPopup />
+        </div>
+        <div className='right'>
+          <button id='quit-btn' onClick={quitButton}>
+            Quit
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Chat;
-
 

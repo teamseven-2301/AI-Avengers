@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Chat = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { roleName, setting } = location.state;
 
   const [input, setInput] = useState(''); //input html element
@@ -15,6 +16,10 @@ const Chat = () => {
   // if (setting === 'cyberpunk') {
   //   setSong('/Internet-Dungeon-Crawler/public/song1.mp3')
   // }
+
+  const quitButton = () => {
+    navigate('/settings');
+  };
 
   useEffect(() => {
     const sendInitialScenario = async () => {
@@ -106,20 +111,27 @@ const Chat = () => {
         {isLoading && <p>Loading...</p>}
         <div ref={chatScrollEnd} id='chat-end'></div>
       </div>
-      <div id='input-field'>
-        <input
-          type='text'
-          name='input'
-          placeholder='What do you do?'
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => {
-            if (e.key === 'Enter') {
-              handleSend();
-            }
-          }}
-          tabIndex={0}
-        />
+      <div id='container'>
+        <div id='input-field' className='left'>
+          <input
+            type='text'
+            name='input'
+            placeholder='What do you do?'
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                handleSend();
+              }
+            }}
+            tabIndex={0}
+          />
+        </div>
+        <div className='right'>
+          <button id='quit-btn' onClick={quitButton}>
+            Quit
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -127,8 +139,9 @@ const Chat = () => {
 
 export default Chat;
 
-
-{/* <audio controls loop autoplay id="myAudio">
+{
+  /* <audio controls loop autoplay id="myAudio">
   <setSong type="audio/mpeg">
   Your browser does not support the audio element.
-</audio> */}
+</audio> */
+}

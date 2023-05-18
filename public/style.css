@@ -55,7 +55,7 @@ nav a {
 }
 
 /* COMPONENT STYLES */
-/* Could have made these classes and made just one styling for all these pages. 
+/* Could have made these classes and made just one styling for all these pages.
 But if we want individual control later over each component, we have the ability */
 
 /* ----------------------- HOME COMPONENT ----------------------- */
@@ -196,6 +196,33 @@ ul {
   outline: none;
   border: none;
 }
+
+
+/* ----------------------- GUI PopUps ----------------------- */
+/* removes pop-up arrow */
+.popup-arrow {
+  display: none
+}
+
+.guiButton {
+  border: solid #dadada 2.5px;
+  padding: 5px;
+}
+
+.guiButton:hover {
+cursor: pointer;
+color: gold;
+border: solid gold 2.5px
+}
+
+.popUpContainer > h2 {
+  display: flex;
+  justify-content: center;
+   align-items: center
+}
+
+.popUpContainer {
+  display: inline;
 
 /* ----------------------- AUTHFORM COMPONENT ----------------------- */
 #overlay {

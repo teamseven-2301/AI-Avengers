@@ -1,7 +1,9 @@
-import React from 'react';
-import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
+import InfoPopup from "./gui/InfoPopUp";
+
 
 const Chat = () => {
   const location = useLocation();
@@ -11,10 +13,6 @@ const Chat = () => {
   const [messageHistory, setMessageHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const chatScrollEnd = useRef(null);
-  // const[song, setSong] = useState
-  // if (setting === 'cyberpunk') {
-  //   setSong('/Internet-Dungeon-Crawler/public/song1.mp3')
-  // }
 
   useEffect(() => {
     const sendInitialScenario = async () => {
@@ -120,6 +118,9 @@ const Chat = () => {
           }}
           tabIndex={0}
         />
+       <div className="buttonsContainer">
+       <InfoPopup />
+       </div>
       </div>
     </div>
   );
@@ -128,7 +129,3 @@ const Chat = () => {
 export default Chat;
 
 
-{/* <audio controls loop autoplay id="myAudio">
-  <setSong type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio> */}

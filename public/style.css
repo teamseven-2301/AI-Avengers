@@ -191,15 +191,30 @@ ul {
   border: none;
 }
 
-/* ----------------------- PopUps ----------------------- */
+/* ----------------------- GUI PopUps ----------------------- */
 
-#guiButtons {
+/* removes pop-up arrow */
+.popup-arrow {
+  display: none
+}
+
+.guiButton {
   border: solid #dadada 2.5px;
   padding: 5px;
 }
 
-
-#guiButtons:hover {
-text-decoration: underline;
+.guiButton:hover {
 cursor: pointer;
+color: gold;
+border: solid gold 2.5px
+}
+
+.popUpContainer > h2 {
+  display: flex;
+  justify-content: center;
+   align-items: center
+}
+
+.popUpContainer {
+  display: inline;
 }

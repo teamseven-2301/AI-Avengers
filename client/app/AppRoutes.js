@@ -8,6 +8,7 @@ import Guide from "../features/Guide";
 import Chat from "../features/chat/Chat";
 import SettingSelect from "../features/settings/SettingSelect";
 import RoleSelect from "../features/role/role";
+import Continue from "../features/continue/Continue";
 import { me } from "./store";
 
 const AppRoutes = () => {
@@ -28,6 +29,7 @@ const AppRoutes = () => {
           <Route path="/settings" element={<SettingSelect />} />
           <Route path="/role/:settingID" element={<RoleSelect />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/continue" element={<Continue />} />
           <Route path="/*" element={<Home />} />
         </Routes>
       ) : (
@@ -38,6 +40,7 @@ const AppRoutes = () => {
           <Route path="/settings" element={<SettingSelect />} />
           <Route path="/role/:settingID" element={<RoleSelect />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/continue" element={<Continue />} />
 
           <Route
             path="/login"

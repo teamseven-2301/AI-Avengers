@@ -7,8 +7,12 @@ const messageHistorySlice = createSlice({
     updateMessageHistory: (state, action) => {
       state.push(action.payload);
     },
+    clearMessageHistory: (state, action) => {
+      return [];
+    },
   },
 });
 
-export const { updateMessageHistory } = messageHistorySlice.actions;
+export const { updateMessageHistory, clearMessageHistory } =
+  messageHistorySlice.actions;
 export default messageHistorySlice.reducer;

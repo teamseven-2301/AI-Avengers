@@ -1,20 +1,25 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import InfoPopup from "./gui/InfoPopUp";
 import { updateMessageHistory } from "./ChatSlice";
 
 const Chat = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { roleName, setting } = location.state || {};
   const [input, setInput] = useState(""); //input html element
   const [isLoading, setIsLoading] = useState(false);
   const chatScrollEnd = useRef(null);
-
   const messageHistory = useSelector((state) => state.messageHistory);
+
+  const quitButton = () => {
+    navigate('/settings');
+  };
 
   useEffect(() => {
     if (messageHistory.length === 0) {
@@ -68,20 +73,30 @@ const Chat = () => {
         {isLoading && <p>Loading...</p>}
         <div ref={chatScrollEnd} id="chat-end"></div>
       </div>
-      <div id="input-field">
-        <input
-          type="text"
-          name="input"
-          placeholder="What do you do?"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleSend();
-            }
-          }}
-          tabIndex={0}
-        />
+      <div id='container'>
+        <div id='input-field' className='left'>
+          <input
+            type='text'
+            name='input'
+            placeholder='What do you do?'
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                handleSend();
+              }
+            }}
+            tabIndex={0}
+          />
+        </div>
+        <div className="buttonsContainer">
+        <InfoPopup />
+        </div>
+        <div className='right'>
+          <button id='quit-btn' onClick={quitButton}>
+            Quit
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -118,3 +133,4 @@ const ChatHistory = ({ messageHistory }) => {
     </>
   );
 };
+

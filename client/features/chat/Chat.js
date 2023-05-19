@@ -18,7 +18,7 @@ const Chat = () => {
   const messageHistory = useSelector((state) => state.messageHistory);
 
   const quitButton = () => {
-    navigate('/settings');
+    navigate("/");
   };
 
   useEffect(() => {
@@ -73,30 +73,27 @@ const Chat = () => {
         {isLoading && <p>Loading...</p>}
         <div ref={chatScrollEnd} id="chat-end"></div>
       </div>
-      <div id='container'>
-        <div id='input-field' className='left'>
+      <div id="input-container">
+        <div id="input-field">
           <input
-            type='text'
-            name='input'
-            placeholder='What do you do?'
+            type="text"
+            name="input"
+            placeholder="What do you do?"
             value={input}
-            onChange={e => setInput(e.target.value)}
-            onKeyDown={e => {
-              if (e.key === 'Enter') {
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
                 handleSend();
               }
             }}
             tabIndex={0}
           />
         </div>
-        <div className="buttonsContainer">
+
         <InfoPopup />
-        </div>
-        <div className='right'>
-          <button id='quit-btn' onClick={quitButton}>
-            Quit
-          </button>
-        </div>
+        <button id="quit-btn" onClick={quitButton}>
+          QUIT
+        </button>
       </div>
     </div>
   );
@@ -133,4 +130,3 @@ const ChatHistory = ({ messageHistory }) => {
     </>
   );
 };
-

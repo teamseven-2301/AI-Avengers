@@ -79,6 +79,7 @@ const Chat = () => {
             type="text"
             name="input"
             placeholder="What do you do?"
+            autoComplete="off"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {

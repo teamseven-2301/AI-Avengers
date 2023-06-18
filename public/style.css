@@ -55,8 +55,6 @@ nav a {
 }
 
 /* COMPONENT STYLES */
-/* Could have made these classes and made just one styling for all these pages.
-But if we want individual control later over each component, we have the ability */
 
 /* ----------------------- HOME COMPONENT ----------------------- */
 #home-container {

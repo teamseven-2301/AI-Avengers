@@ -95,21 +95,22 @@ nav a {
 
 /* ----------------------- GUIDE COMPONENT ----------------------- */
 #guide-container {
-  display: grid;
-  place-items: center;
-  height: 100vh;
+  display: flex;
+  /* place-items: center; */
+  /* height: 100vh; */
 }
 
 #guide-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   max-width: 900px;
   text-align: center;
 }
 
 #guide-container h3 {
   margin: 0;
+  text-decoration: underline;
 }
 
 /* ----------------------- ABOUT COMPONENT ----------------------- */

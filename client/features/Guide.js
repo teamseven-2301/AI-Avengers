@@ -5,11 +5,6 @@ const Guide = () => {
     <div id="guide-container">
       <div id="guide-info">
         <h1>Unconstrained by rules or objectives, only adventure!</h1>
-        {/* <h3>Define Your Setting & Role</h3>
-        <p>
-          Choose a setting and a role, AI will utilize your selection to create
-          the initial prompt for a story.
-        </p> */}
         <h3>Actions</h3>
         <p>
           You decide what your character says or does. The AI will produce the

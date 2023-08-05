@@ -96,14 +96,11 @@ nav a {
 /* ----------------------- GUIDE COMPONENT ----------------------- */
 #guide-container {
   display: flex;
-  /* place-items: center; */
-  /* height: 100vh; */
 }
 
 #guide-info {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   max-width: 900px;
   text-align: center;
 }

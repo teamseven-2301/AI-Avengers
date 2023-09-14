@@ -1,21 +1,20 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import InfoPopup from "./gui/InfoPopUp";
 import { updateMessageHistory } from "./ChatSlice";
 
 const Chat = () => {
-  const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { roleName, setting } = location.state || {};
   const [input, setInput] = useState(""); //input html element
   const [isLoading, setIsLoading] = useState(false);
   const chatScrollEnd = useRef(null);
   const messageHistory = useSelector((state) => state.messageHistory);
+  const prompt = useSelector((state) => state.selectedRole.prompt);
 
   const quitButton = () => {
     navigate("/");
@@ -24,7 +23,7 @@ const Chat = () => {
   useEffect(() => {
     if (messageHistory.length === 0) {
       const sendInitialScenario = async () => {
-        const scenario = `You are the dungeon master and I am the player. The setting is ${setting}. You are free to come up with the specific scenario. My character is a ${roleName}. I will input a prompt with my actions, and you will reply with the consequences of my actions in the game's universe. AI will construct the details of the gaming session to provide an immersive experience, and will now begin with only narration introducing player to the scenario. Please try to keep responses to 200 tokens or less.`;
+        const scenario = prompt;
 
         dispatch(updateMessageHistory({ role: "system", content: scenario })); //first value in message history array
         const initialMessage = [{ role: "system", content: scenario }];

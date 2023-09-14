@@ -4,6 +4,7 @@ import roleSelectReducer from "../features/role/roleSlice";
 import authReducer from "../features/auth/authSlice";
 import settingSelectReducer from "../features/settings/settingSelectSlice";
 import messageHistoryReducer from "../features/chat/ChatSlice";
+import selectedroleSlice from "../features/role/selectedroleSlice";
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     roleSelect: roleSelectReducer,
     settingSelect: settingSelectReducer,
     messageHistory: messageHistoryReducer,
+    selectedRole: selectedroleSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

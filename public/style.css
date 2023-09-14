@@ -136,6 +136,13 @@ nav a {
   cursor: pointer;
 }
 
+/* ----------------------- ROLE COMPONENT ----------------------- */
+
+.singleRole:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* ----------------------- CHAT COMPONENT ----------------------- */
 #chat-container {
   display: flex;

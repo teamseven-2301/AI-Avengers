@@ -1,19 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRoles } from "./roleSlice";
+import { setRole } from "./selectedroleSlice";
 
-import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const RoleSelect = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const roles = useSelector((state) => state.roleSelect);
-  const location = useLocation();
-  const { settingName } = location.state;
   const { settingID } = useParams();
 
   const backButton = () => {
     navigate("/settings");
+  };
+
+  const handleRoleClick = (roleName) => {
+    dispatch(setRole(roleName));
+    navigate("/chat");
   };
 
   useEffect(() => {
@@ -27,18 +31,16 @@ const RoleSelect = () => {
           <h2>{"> Choose your role"}</h2>
 
           <div className="roleList">
-            {roles.map((aRole) => (
-              <Link
-                to={`/chat`}
-                state={{ roleName: aRole.name, setting: settingName }}
-                key={aRole.id}
+            {roles.map((aRole, index) => (
+              <div
+                className="singleRole"
+                key={index}
+                onClick={() => handleRoleClick(aRole)}
               >
-                <div className="singleRole">
-                  <section>
-                    <h3> {aRole.name.toUpperCase()}</h3>
-                  </section>
-                </div>
-              </Link>
+                <section>
+                  <h3> {aRole.name.toUpperCase()}</h3>
+                </section>
+              </div>
             ))}
             <div onClick={backButton} id="back-btn">
               {"<"}

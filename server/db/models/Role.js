@@ -1,15 +1,19 @@
-const Sequelize = require('sequelize');
-const db = require('../db');
+const Sequelize = require("sequelize");
+const db = require("../db");
 
-const Role = db.define('role', {
+const Role = db.define("role", {
   name: {
     type: Sequelize.STRING,
-    unique: true,
+    // unique: true,
     allowNull: false,
   },
   settingId: {
     type: Sequelize.INTEGER,
     allowNull: false,
+  },
+  prompt: {
+    type: Sequelize.STRING(1000),
+    allowNull: true,
   },
 });
 

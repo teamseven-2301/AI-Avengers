@@ -22,13 +22,16 @@ if (process.env.DATABASE_URL) {
 }
 
 //local db
+// const db = new Sequelize(
+//   process.env.DATABASE_URL || `postgres://localhost:5432/${databaseName}`,
+//   config
+// );
+// module.exports = db;
+
+//deployment db
 const db = new Sequelize(
-  process.env.DATABASE_URL || `postgres://localhost:5432/${databaseName}`,
+  process.env.DATABASE_URL ||
+    "postgresql://postgres:8pouB90stMXMhpwwf2Oy@containers-us-west-128.railway.app:6022/railway",
   config
 );
 module.exports = db;
-
-//deployment db
-// const db = new Sequelize(
-//   process.env.DATABASE_URL || 'postgresql://idcwewilldeploy:v2_44MJa_3L7kmM7XwWcAwxxwVTb33Nj@db.bit.io:5432/idcwewilldeploy/i-d-c?ssl=true', config)
-// module.exports = db
